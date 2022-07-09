@@ -5,6 +5,14 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    {{{body}}}
+    <div id="background">
+      <div id="page">
+        {{> header}}
+        <div id="contents">
+          {{{body}}}
+        </div>
+      </div>
+      {{> footer}}
+    </div>
   </body>
 </html>
