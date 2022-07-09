@@ -12,6 +12,7 @@ const roomsRouter = require('./app_server/routes/rooms');
 const mealsRouter = require('./app_server/routes/meals');
 const newsRouter = require('./app_server/routes/news');
 const aboutRouter = require('./app_server/routes/about');
+const contactRouter = require('./app_server/routes/contact');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use('/rooms', roomsRouter);
 app.use('/meals', mealsRouter);
 app.use('/news', newsRouter);
 app.use('/about', aboutRouter);
+app.use('/contact', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
