@@ -1,0 +1,16 @@
+<div class="box">
+    <div>
+        <div>
+            <h3>Latest Blogs</h3>
+            <ul>
+                {{#each this}}
+                <li>
+                    <h4><a href={{this.url}}>{{this.title}}</a></h4>
+                    <span>{{this.date}}</span>
+                    {{{this.description}}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
