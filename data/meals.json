@@ -2,16 +2,19 @@
     {
         "name": "SeaFood Special",
         "image": "images/seafoods.jpg",
-        "description": "<p><span>Fried Salmon Special</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
+        "description": "<p><span>Fried Salmon Special</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
+        "url": "/meals"
     },
     {
         "name": "Sumptuous Desserts",
         "image": "images/desserts.jpg",
-        "description": "<p><span>Choco Ice Cream Sandwich</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
+        "description": "<p><span>Choco Ice Cream Sandwich</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
+        "url": "/meals"
     },
     {
         "name": "Buffet",
         "image": "images/buffet.jpg",
-        "description": "<p><span>Mixed Buffet</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
+        "description": "<p><span>Mixed Buffet</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
+        "url": "/meals"
     }
 ]
