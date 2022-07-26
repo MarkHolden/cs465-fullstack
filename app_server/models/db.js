@@ -4,18 +4,12 @@ const readLine = require('readline');
 const host = process.env.DB_HOST || '127.0.0.1'
 const dbUri = `mongodb://${host}/travelr`;
 
-// Avoid 'current server ... ' error
-mongoose.set('useUnifiedTopology', true);
-
 const connect = () => {
-    setTimeout(() => mongoose.connect(dbUri, {
-        useNewUrlParser: true,
-        useCreateIndex: true
-    }), 1000);
+    setTimeout(() => mongoose.connect(dbUri), 1000);
 }
 
 mongoose.connection.on('connected', () => {
-    console.log(`Mongoose connected to ${dbURI}`);
+    console.log(`Mongoose connected to ${dbUri}`);
 });
 
 mongoose.connection.on('error', err => {
