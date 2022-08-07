@@ -18,6 +18,13 @@ export class TripService {
     .catch(this.handleError);
   }
 
+  public addTrip(trip: Trip): Promise<Trip> {
+    return this.client.post(`${this.baseUrl}/trips`, trip)
+    .toPromise()
+    .then((response: any) => response as Trip)
+    .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('Something went wrong', error);
     return Promise.reject(error.message || error);

@@ -37,21 +37,14 @@ const get = async (req, res) => {
 
 // POST: /trips Creates a trip.
 const create = async (req, res) => {
-    console.log(req);
-    console.log(req.body);
-    // model.create(req.body)
-    //     .exec((err, trips) => {
-    //         if (!trips) {
-    //             return res.status(404)
-    //                 .json({ "message": "no trips found." });
-    //         } else if (err) {
-    //             return res.status(500)
-    //                 .json(err);
-    //         } else {
-    //             return res.status(201)
-    //                 .json(trips);
-    //         }
-    //     });
+    model.create(req.body)
+        .then((trip) => {
+            return res.status(201)
+                .json(trip);
+        }).catch((err) => {
+            return res.status(500)
+                .json(err);
+        });
 };
 
 // PUT: /trips/:tripId Updates a trip.
