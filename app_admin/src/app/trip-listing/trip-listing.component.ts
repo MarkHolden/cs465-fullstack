@@ -35,4 +35,16 @@ export class TripListingComponent implements OnInit {
     this.getTrips();
   }
 
+  handleDeleteTrip(code: any): void {
+    this.service.deleteTrip(code)
+    .then(() => {
+      const index = this.trips.findIndex((trip) => {
+        return trip.code === code;
+      });
+
+      if (index !== -1) {
+        this.trips.splice(index, 1);
+      }
+    });
+  }
 }

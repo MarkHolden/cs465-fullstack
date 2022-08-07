@@ -25,6 +25,12 @@ export class TripService {
     .catch(this.handleError);
   }
 
+  public deleteTrip(tripCode: string): Promise<any> {
+    return this.client.delete(`${this.baseUrl}/trips/${tripCode}`)
+    .toPromise()
+    .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('Something went wrong', error);
     return Promise.reject(error.message || error);
