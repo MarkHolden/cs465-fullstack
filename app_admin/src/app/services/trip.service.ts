@@ -5,17 +5,16 @@ import { Trip } from '../models/trip'
 @Injectable({
   providedIn: 'root'
 })
-export class TripDataService {
+export class TripService {
 
   constructor(private client: HttpClient) { }
 
   private baseUrl = 'http://localhost:3000/api';
 
   public getTrips(): Promise<Trip[]> {
-    console.log('Inside TripDataService#getTrips');
     return this.client.get(`${this.baseUrl}/trips`)
     .toPromise()
-    .then((response: any) => response.json() as Trip[])
+    .then((response: any) => response as Trip[])
     .catch(this.handleError);
   }
 
