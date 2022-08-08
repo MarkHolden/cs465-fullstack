@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 const tripsController = require('../controllers/trips');
 
-router.get('/trips', tripsController.list);
-router.get('/trips/:tripId', tripsController.get);
-router.post('/trips', tripsController.create);
-router.put('/trips/:tripId', tripsController.update);
-router.delete('/trips/:tripId', tripsController.remove);
+router.route('/trips')
+    .get(tripsController.list)
+    .post(tripsController.create);
+
+router.route('/trips/:tripId')
+    .get(tripsController.get)
+    .put(tripsController.update)
+    .delete(tripsController.remove);
 
 module.exports = router;

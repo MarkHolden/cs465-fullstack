@@ -11,6 +11,7 @@
         </p>
         <p class="card-text" [innerHTML]="trip.description">
         </p>
+        <button (click)="editTrip()" class="btn btn-outline-info me-3">Edit</button>
         <button (click)="deleteTrip()" class="btn btn-outline-danger">Delete</button>
     </div>
 </div>

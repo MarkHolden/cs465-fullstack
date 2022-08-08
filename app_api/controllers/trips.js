@@ -49,42 +49,40 @@ const create = async (req, res) => {
 
 // PUT: /trips/:tripId Updates a trip.
 const update = async (req, res) => {
-    console.log(req);
-    console.log(req.body);
-    model.find({ 'code': req.params.tripId })
-        .exec((err, trips) => {
-            if (!trips) {
-                return res.status(404)
-                    .json({ "message": "no trips found." });
-            } else if (err) {
-                return res.status(500)
-                    .json(err);
-            } else {
-                model.updateOne({ 'code': req.params.tripId }, req.body)
-                    .exec((err, trip) => {
-                        if (err) {
-                            return res.status(500)
-                                .json(err);
-                        } else {
-                            return res.status(200)
-                                .json(trip);
-                        }
+    model
+        .findOneAndUpdate({ 'code': req.params.tripId }, {
+            code: req.body.code,
+            name: req.body.name,
+            length: req.body.length,
+            start: req.body.start,
+            resort: req.body.resort,
+            perPerson: req.body.perPerson,
+            image: req.body.image,
+            description: req.body.description
+        }, { new: true })
+        .then(trip => {
+            if (!trip) {
+                return res
+                    .status(404)
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.tripId
                     });
             }
+            res.send(trip);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res
+                    .status(404)
+                    .send({
+                        message: "Trip not found with code "
+                            + req.params.tripId
+                    });
+            }
+            return res
+                .status(500) // server error
+                .json(err);
         });
-    // model.create(req.body)
-    //     .exec((err, trips) => {
-    //         if (!trips) {
-    //             return res.status(404)
-    //                 .json({ "message": "no trips found." });
-    //         } else if (err) {
-    //             return res.status(500)
-    //                 .json(err);
-    //         } else {
-    //             return res.status(200)
-    //                 .json(trips);
-    //         }
-    //     });
 };
 
 // GET: /trips/:tripId - get trip by id.

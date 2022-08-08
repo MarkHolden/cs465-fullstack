@@ -9,25 +9,39 @@ export class TripService {
 
   constructor(private client: HttpClient) { }
 
-  private baseUrl = 'http://localhost:3000/api';
+  private tripsUrl = 'http://localhost:3000/api/trips';
 
   public getTrips(): Promise<Trip[]> {
-    return this.client.get(`${this.baseUrl}/trips`)
+    return this.client.get(this.tripsUrl)
     .toPromise()
     .then((response: any) => response as Trip[])
     .catch(this.handleError);
   }
 
+  public getTrip(tripCode: string): Promise<any> {
+    return this.client.get(`${this.tripsUrl}/${tripCode}`)
+    .toPromise()
+    .then((response: any) => response[0] as Trip)
+    .catch(this.handleError);
+  }
+
   public addTrip(trip: Trip): Promise<Trip> {
-    return this.client.post(`${this.baseUrl}/trips`, trip)
+    return this.client.post(this.tripsUrl, trip)
     .toPromise()
     .then((response: any) => response as Trip)
     .catch(this.handleError);
   }
 
   public deleteTrip(tripCode: string): Promise<any> {
-    return this.client.delete(`${this.baseUrl}/trips/${tripCode}`)
+    return this.client.delete(`${this.tripsUrl}/${tripCode}`)
     .toPromise()
+    .catch(this.handleError);
+  }
+
+  public updateTrip(trip: Trip): Promise<Trip> {
+    return this.client.put(`${this.tripsUrl}/${trip.code}`, trip)
+    .toPromise()
+    .then((response: any) => response as Trip)
     .catch(this.handleError);
   }
 
