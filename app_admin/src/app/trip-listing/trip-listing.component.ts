@@ -31,7 +31,7 @@ export class TripListingComponent implements OnInit {
   }
 
   addTrip(): void {
-    this.router.navigate(['add-trip']);
+    this.router.navigate(['trips/add']);
   }
 
   ngOnInit(): void {
@@ -53,8 +53,5 @@ export class TripListingComponent implements OnInit {
 
   public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
-  }
-  public onLogout(): void {
-    return this.authenticationService.logout();
   }
 }

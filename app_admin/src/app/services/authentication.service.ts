@@ -3,6 +3,7 @@ import { BROWSER_STORAGE } from '../storage';
 import { User } from '../models/user'
 import { AuthResponse } from '../models/auth-response';
 import { HttpClient } from '@angular/common/http';
+import { Buffer } from 'buffer';
 
 @Injectable({
   providedIn: 'root'

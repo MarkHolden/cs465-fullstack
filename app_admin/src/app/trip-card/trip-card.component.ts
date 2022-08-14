@@ -17,7 +17,7 @@ export class TripCardComponent implements OnInit {
   ngOnInit(): void { }
 
   editTrip(): void {
-    this.router.navigate([`edit-trip/${this.trip.code}`]);
+    this.router.navigate([`trips/${this.trip.code}/edit`]);
   }
 
   deleteTrip(): void {
@@ -28,8 +28,5 @@ export class TripCardComponent implements OnInit {
 
   public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
-  }
-  public onLogout(): void {
-    return this.authenticationService.logout();
   }
 }
