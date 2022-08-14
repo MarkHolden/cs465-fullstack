@@ -9,12 +9,12 @@
             <a class="nav-item nav-link active" routerLink="trips">Trips<span class="visually-hidden">(current)</span></a>
         </div>
     </div>
-    <div class="navbar-end ">
+    <div class="navbar-end">
         <a class="navbar-item" routerLink="login" *ngIf="!isLoggedIn()">
-            <span class="has-icon-left">Log In</span>
+            <span class="has-icon-left pe-3">Log In</span>
         </a>
         <a class="navbar-item" (click)="onLogout()" *ngIf="isLoggedIn()">
-            <span class="has-icon-left ">Log Out</span>
+            <span class="has-icon-left pe-3">Log Out</span>
         </a>
     </div>
 </nav>
