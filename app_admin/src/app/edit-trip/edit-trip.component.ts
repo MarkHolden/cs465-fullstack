@@ -35,7 +35,7 @@ export class EditTripComponent implements OnInit {
     const tripCode = this.route.snapshot.paramMap.get('id');
     if (!tripCode) {
       alert("Something went wrong. Check the path.");
-      this.router.navigate(['']);
+      this.router.navigate(['trips']);
       return;
     }
 
@@ -63,7 +63,7 @@ export class EditTripComponent implements OnInit {
     if (this.editForm?.valid) {
       this.tripService.updateTrip(this.editForm?.value)
         .then((data: any) => {
-          this.router.navigate(['']);
+          this.router.navigate(['trips']);
         });
     }
   }

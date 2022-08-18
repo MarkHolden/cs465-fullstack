@@ -60,5 +60,6 @@ process.on('SIGTERM', () => {
 
 connect();
 
-// bering in Mongoose schema
+// bring in Mongoose schema
 require('./travelr')
+require('./user')
