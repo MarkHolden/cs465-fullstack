@@ -1,2 +1,35 @@
 # cs465-fullstack
 Full Stack Development with MEAN
+
+## Architecture
+
+### Compare and contrast the types of frontend development you used in your full stack project, including Express HTML, JavaScript, and the single-page application (SPA).
+Excluding minor variations between the syntax used in different frameworks, they are all exceedingly similar. In my opinion, the biggest difference between any different front-end implementations would be whether they are a single-page application (SPA) or not. The use of a SPA-style page, where the entire page is loaded in the beginning, and then through routing schemes, pages are presented to the user have only minor variations in terms of the actual HTML, Javascript, and CSS that is written. The same similarity appears between non-SPA frameworks, making a transition from one to another possible, and while it wil be a pain (class names will probably be different, routing will need to be completely redone), it would really only be a few developer-weeks for a moderate sized application.
+
+### Why did the backend use a NoSQL MongoDB database?
+The best I can figure it, the reason to use MongoDB as the persistence layer for the back end is the perception that most students would be unable to configure and manage a solution such as MS SQL, Postgres, or MySql. In my opinion however, configuration for any of these is actually simpler and since they are all different flavors of SQL, the syntax used to interact with them is transferrable to almost every job that students will potentially have, while MongoDB is very limited in that sense. I'm sure certain companies do use MongoDB databases, but if they are doing so for more than just rapid-prototyping (which can very easily be done in any of the aforementioned relational models, or the gold-standard of document databases: Elasticsearch), then they are preparing to fail when the database is inevitably used for more than just the prototype.
+
+## Functionality
+
+### How is JSON different from Javascript?
+Javascript Object Notation (JSON) and Javascript are completely different in almost every way. JSON is not a programming language, it is simply a notation for defining objects. Javascript is an interpreted programming language, and while objects can be defined in Javascript, that is not the entirety of its purpose. Syntactically, the main difference between the object definitions in the two languages is that in JSON the property names are in double quotes, while in Javascript they are not surrounded by quotes of any kind, and that in JSON strings are represented with double quotes, while in Javascript, they can be denoted by single quotes, double quotes, or ticks.
+
+### How does JSON tie together the frontend and backend development pieces?
+JSON is a common notation with which information can be transmitted from one system to another. The use of JSON is so prolific that there is build in support for it in .Net making it simple to transmit data to and form a .Net backend and have the values serialized and deserialized automatically by the framework. The same is true of many other frameworks including Node as demonstrated in this course.
+
+### Provide instances in the full stack process when you refactored code to improve functionality and efficiencies.
+When writing code, I refactor very often. The identifiers that I use to indicate that a refactor is potentially needed is when I see the same code written in more than two places, especially in the same file (should be made a private method); if I consider copying and pasting code to use in another class (possibly should be a utility class); or if I see methods longer than about 4 or so lines (should be extracted out to smaller functions). This improves efficiency by having self-documenting code via the method names, code that allows the developer to make a change in one place rather than having to hunt down all copy-pasted instances of the code. Functionality is improved when the well named functions that are used throughout the program are well maintained and thoroughly tested. Having short, understandable functions also assists in developer efficiency and functionality because the better understanding an engineer has of what a function does, the more likely they will be able to maintain it well.
+
+### Name the benefits that come from reusable user interface (UI) components.
+The benefits us reusing UI code are very much the same as reusing any code. The code must only be written once, and when it is maintained, it can be tested thoroughly to ensure that additional feature development and refactoring does not break existing functionality.
+
+## Testing
+
+### Methods for request and retrieval necessitate various types of API testing of endpoints, in addition to the difficulties of testing with added layers of security. Explain your understanding of methods, endpoints, and security in a full stack application.
+For the security of a single page application (SPA), the front end code can be minified and obfuscated when deployed to a production environment. This can improve load times as well because the minified app will be smaller as the name implies. However minified and obfuscated, the front end code will still be given to the attacker, so the serious security needs to be implemented where they do not have access - server-side, in the back-end.
+In order to implement rigorous security on the back-end of an application, all functions should default to the most strict permissions, and then if lesser permissions are required for a specific function, that can be surgically added to only the specific endpoints that are required. It is common for GET endpoints to have lower permission requirements than PUTs and POSTs.
+
+## Reflection
+
+### How has this course helped you in reaching your professional goals? What skills have you learned, developed, or mastered in this course to help you become a more marketable candidate in your career field?
+It is always nice to practice up on skills that I do not typically use on a daily basis at work. It has been over 3 years since I have done any serious work in Angular, and my more recent Vue.js and React experience was not in a classroom setting so I just needed to make features work and get them out the door, rather than spend time understanding what was really going on under the hood. The way this course used repetitive practice of adding components with differing functionality helped me to get some practice that I think will be very useful in my future at SpaceX. My main focus is to fulfill a position developing the back-end that actually drives the systems, but they do have and need front end engineers for positions such as the [Software Engineer, Browser (Starship)](https://boards.greenhouse.io/spacex/jobs/6305322002?gh_jid=6305322002).
